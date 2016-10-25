@@ -9,8 +9,8 @@ class LoginDAO {
         $this->repository = new Repository();
     }
 
-    function ingresar(Usuario $obj) {
-        $query = "SELECT usuario,password "
+    function ingresar(LogIn $obj) {
+        $query = "SELECT usuario,password,rol "
                 . "from usuarios "
                 . "where usuario='" . $obj->getUsuario() . "' AND password='" . $obj->getPassword() . "'";        
         $this->repository->Execute($query);        

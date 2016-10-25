@@ -1,6 +1,6 @@
 <?php
 
-class clsLogin {
+class LogIn {
 
     private $usuario;
     private $password;

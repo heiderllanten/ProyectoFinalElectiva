@@ -27,12 +27,38 @@ app.service('logInService', function ($http, $httpParamSerializerJQLike) {
         /*El resultado del $http es almacenado en la promesa*/
         /*Ademas se debe definir el tipo de cabecera para enviar los datos*/
         var promise = $http({
+            method: "get",
+            url: "PDO/Controller/CtlLogIn.php",
+            params: {
+                usuario: identificacion.usuario,
+                password: identificacion.password},
+            headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+        }).then(function mySucces(response) {
+            /*Todos los datos se almacenan en .data*/
+            return response.data;
+        }, function myError(response) {
+            alert("Error");
+            alert(response.statusText);
+        });
+
+        /*Luego se retorna la promesa*/
+        return promise;
+    };
+
+    this.registrar = function (registro) {
+        /*El resultado del $http es almacenado en la promesa*/
+        /*Ademas se debe definir el tipo de cabecera para enviar los datos*/
+        var promise = $http({
             method: "post",
             url: "PDO/Controller/CtlLogin.php",
             data: $httpParamSerializerJQLike({
-                usuario: identificacion.usuario,
-                password: identificacion.password}),
-            headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+                nombre: registro.nombre,
+                apellido: registro.apellido,
+                cedula: registro.cedula,
+                fechaNacimiento: registro.fechaNacimiento,
+                usuario: registro.usuario,
+                password: registro.password}),
+            headers: {'Content-Type': 'application/json'}
         }).then(function mySucces(response) {
             /*Todos los datos se almacenan en .data*/
             return response.data;

@@ -13,15 +13,15 @@ $dao = new LoginDAO();
 switch (strtolower($method)) {
     /* Buscar o Listar */
     case 'get':
-
+        
         $usuario = (isset($_REQUEST['usuario']) ? $_REQUEST['usuario'] : "");
         $password = (isset($_REQUEST['password']) ? $_REQUEST['password'] : "");
-
+        
         if ($usuario != "") {
             //Buscar
-            $obj = new LogIn($usuario, $password);
-            $dao->Search($obj);
-        } 
+            $obj = new LogIn($usuario, $password);            
+            $dao->ingresar($obj);
+        }
         break;
 
     case 'post':
@@ -29,9 +29,8 @@ switch (strtolower($method)) {
         /* CONTROL DE ACCIONES */
         $data = $_POST;
         $data = json_decode(json_encode($_POST));
-        $obj = new Rol(null, $data->nombre, $data->descripcion);
+        $obj = new Cliente($data->nombre, $data->apellido, $data->cedula, $data->fechaNacimiento, $data->usuario, $data->password);
         $dao->Save($obj);
         break;
-    
 }
 ?>

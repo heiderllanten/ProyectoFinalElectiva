@@ -31,7 +31,7 @@ app.controller('CtlLogIn', function ($scope, $window, logInService) {
              * el cual esta asociado a los input*/
             logInService.logIn($scope.identificacion).then(function (response) {
                 /*El resultado de la promesa se recibe por parametro*/
-                if (response.status) {
+                if (response.length > 0) {
                     /*Se almacena en una variable de session los datos*/
                     sessionStorage.setItem("usersession", response.user);
                     sessionStorage.setItem("sesion", response.status);

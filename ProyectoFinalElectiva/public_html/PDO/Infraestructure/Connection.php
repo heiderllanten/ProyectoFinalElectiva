@@ -9,23 +9,23 @@ class Connection {
     private $connect;
 
     public function connect() {
-        //MYSQL
-        $this->userbd = "root";        
-        $this->passworddb = "admin";
+//        //MYSQL
+//        $this->userbd = "root";        
+//        $this->passworddb = "admin";
         
-        //POSTGRES
-        //$this->userbd = "postgres";
-        //$this->passworddb = "admin";
+//        POSTGRES
+        $this->userbd = "postgres";
+        $this->passworddb = "root";
         
-        $this->database = "pdodb";        
+        $this->database = "banco";        
         $this->host = "localhost";
 
         try {
             //MYSQL
-            $this->connect = new PDO("mysql:host=$this->host;dbname=$this->database", $this->userbd, $this->passworddb);
+//            $this->connect = new PDO("mysql:host=$this->host;dbname=$this->database", $this->userbd, $this->passworddb);
             
             //POSTGRES
-            //$this->connect = new PDO("pgsql:host=$this->host;dbname=$this->database", $this->userbd, $this->passworddb);
+            $this->connect = new PDO("pgsql:host=$this->host;dbname=$this->database", $this->userbd, $this->passworddb);
             
             // set the PDO error mode to exception
             $this->connect->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
