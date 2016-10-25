@@ -21,19 +21,18 @@ and open the template in the editor.
         <script src="dependencias/bower_components/angular-route/angular-route.min.js" type="text/javascript"></script>
 
          <!--ARCHIVOS PROPIOS--> 
-        <script src="recursos/js/general/appMasterPage.js" type="text/javascript"></script>
-
+         <script src="recursos/js/general/appMasterPageCajero.js" type="text/javascript"></script>
          <!--ARCHIVOS DEL LOGIN-->
         <script src="recursos/js/general/login/logInCtl.js" type="text/javascript"></script>
         <script src="recursos/js/general/login/logInSer.js" type="text/javascript"></script>
         
     </head>
 
-    <body ng-app="appMasterPage" ng-controller="CtlValidate">
+    <body ng-app="appMasterPageCajero" ng-controller="CtlValidate">
 
         <!-- MENU -->        
         <!-- END MENU -->        
-         <nav class="navbar navbar-default" role="navigation" >
+        <nav class="navbar navbar-default" role="navigation" >
                 <div class="navbar-header" >
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
 
@@ -45,15 +44,8 @@ and open the template in the editor.
                 </div>
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
-                        <li><a href="#/Filtro/">Gestion Banco</a></li>
-                        <li><a href="#/tareas/">Gestion Sucursales</a></li>
-                        <li><a href="#/tareas/">Gestion Empleados</a></li>
-                        <li><a href="#/tareas/">Gestion Cargos</a></li>
-                        <li><a href="#/tareas/">Gestion Municipios</a></li>
-                        <li><a href="#/tareas/">Gestion Departamento</a></li>
-                        <li><a href="#/tareas/">Gestion Pais</a></li>
-                        <li><a href="#/tareas/">Gestion Tipos de Cuenta</a></li>
-                        <li><a href="#/tareas/">Gestion Costos Asociados</a></li>
+                        <li><a href="#/Filtro/">Registrar Movimientos Bancarios</a></li>
+                        
 
                     </ul>
                     <div ng-controller="CtlLogIn">

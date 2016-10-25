@@ -22,8 +22,12 @@ switch (strtolower($method)) {
         
         if ($usuario != "") {
             //Buscar
-            $obj = new LogIn($usuario, $password);            
-            $daoLogIn->ingresar($obj);
+            $obj = new LogIn($usuario, $password);     
+            if($daoLogIn->ingresar($obj)){
+                $daoLogIn->ingresar($obj);
+    echo '{"user" : "' . $usuario . '","res":"Operaicon exitosa!","status":true}';
+            }
+          
         }
         break;
 

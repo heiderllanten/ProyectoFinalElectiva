@@ -35,8 +35,21 @@ app.controller('CtlLogIn', function ($scope, $window, logInService) {
                     /*Se almacena en una variable de session los datos*/
                     sessionStorage.setItem("usersession", response.user);
                     sessionStorage.setItem("sesion", response.status);
+                    
                     /*Redirecciona la pagina*/
-                    $window.location.href = "paginaPrincipal.html";
+                    alert(response[0].rol);
+                        if (response[0].rol === "CLIENTE") {
+                            $window.location.href = "masterPageCliente.html";
+                        } else if (response[0].rol === "ADMINISTRADOR") {
+                            $window.location.href = "paginaPrincipal.html";
+                        } else if (response[0].rol === "GERENTE") {
+                            $window.location.href = "masterPageGerente.html";
+                        } else if (response[0].rol === "ASESOR") {
+                            $window.location.href = "masterPageAsesor.html";
+                        } else if (response[0].rol === "CAJERO") {
+                            $window.location.href = "masterPageCajero.html";
+                        }
+                    
                 } else {
                     alert("Usuario o contrasena incorrectos");
                     /*Solo con limpiar el objeto se limpian todos los input 
