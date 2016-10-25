@@ -2,12 +2,15 @@
 
 /* IMPORTS */
 require '../Modelo/LogIn.php';
+require '../Modelo/Cliente.php';
 require '../DAO/LogInDAO.php';
+//require '../DAO/ClienteDAO.php';
 
 /* Capturamos el tipo de la peticion: podría ser get, post, put o delete. */
 $method = $_SERVER['REQUEST_METHOD'];
 
-$dao = new LoginDAO();
+$daoLogIn = new LoginDAO();
+//$daoCliente = new ClienteDAO();
 
 // Dependiendo del método de la petición ejecutaremos la acción correspondiente.
 switch (strtolower($method)) {
@@ -20,17 +23,17 @@ switch (strtolower($method)) {
         if ($usuario != "") {
             //Buscar
             $obj = new LogIn($usuario, $password);            
-            $dao->ingresar($obj);
+            $daoLogIn->ingresar($obj);
         }
         break;
 
     case 'post':
         /* Guardar */
         /* CONTROL DE ACCIONES */
-        $data = $_POST;
         $data = json_decode(json_encode($_POST));
+//        echo implode(",", $data);
         $obj = new Cliente($data->nombre, $data->apellido, $data->cedula, $data->fechaNacimiento, $data->usuario, $data->password);
-        $dao->Save($obj);
+        $daoLogIn->registrar($obj);
         break;
 }
 ?>

@@ -49,6 +49,26 @@ app.controller('CtlLogIn', function ($scope, $window, logInService) {
         }
     };
 
+    $scope.registrar = function (form) {
+        /*Si el formulario esta bien validado*/
+        if (form) {
+            /*Se ejecuta la funcion mandando por parametro el objeto identificacion, 
+             * el cual esta asociado a los input*/
+            logInService.registrar($scope.registro).then(function (response) {
+                /*El resultado de la promesa se recibe por parametro*/
+                if (response.length > 0) {
+                    alert("Se registró con éxito");
+                    $("#login-form").delay(100).fadeIn(100);
+                    $("#register-form").fadeOut(100);
+                    $('#register-form-link').removeClass('active');
+                    $('#login-form-link').addClass('active');
+                }
+            });
+        } else {
+            alert("Verifique los datos ingresados");
+        }
+    };
+
 
     /*Se define una funcion para agregar*/
     $scope.logOut = function () {

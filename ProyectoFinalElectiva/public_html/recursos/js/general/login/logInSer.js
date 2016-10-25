@@ -58,7 +58,7 @@ app.service('logInService', function ($http, $httpParamSerializerJQLike) {
                 fechaNacimiento: registro.fechaNacimiento,
                 usuario: registro.usuario,
                 password: registro.password}),
-            headers: {'Content-Type': 'application/json'}
+            headers: {'Content-Type': 'application/x-www-form-urlencoded'}
         }).then(function mySucces(response) {
             /*Todos los datos se almacenan en .data*/
             return response.data;
