@@ -15,6 +15,18 @@ app.config(function ($routeProvider) {
                 controller: 'CtlCargos',
                 templateUrl: 'cargos.html'
             })
+            .when('/pais', {
+                controller: 'CtlPais',
+                templateUrl: 'vista/admin/pais.html'
+            })
+            .when('/departamento', {
+                controller: 'CtlDepartamento',
+                templateUrl: 'vista/admin/departamento.html'
+            })
+            .when('/municipio', {
+                controller: 'CtlMunicipio',
+                templateUrl: 'vista/admin/municipio.html'
+            })
             .otherwise({
                 redirectTo: '/'
             });

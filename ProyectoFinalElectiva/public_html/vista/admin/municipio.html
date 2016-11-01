@@ -1,0 +1,99 @@
+<form class="form-horizontal" role="form" name="formMunicipio" style="margin-top: 
+      80px; width: 600px;">
+    <div class="page-header">
+        <h1>Municipio</h1>
+    </div>
+   <div class="form-group">
+    <label for="selPais" class="col-lg-2 control-label">Pais</label>
+    <div class="col-lg-10">
+        <select class="form-control" id="selPais" ng-model="municipio.pais" 
+                ng-change="listarDepartamentos()">
+            <option>Seleccione una Opcion</option>
+            <option ng-repeat="obj in paises" value="{{obj.codigo}}">{{obj.nombre}}</option>                
+        </select>
+    </div>
+  </div>
+    <div class="form-group">
+    <label for="selDepartamento" class="col-lg-2 control-label">Departamento</label>
+    <div class="col-lg-10">
+        <select class="form-control" id="selDepartamento" ng-model="municipio.departamento">
+            <option>Seleccione una Opcion</option>
+            <option ng-repeat="obj in departamentos" value="{{obj.codigo}}">{{obj.nombre}}</option>                
+        </select>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="txtNombre" class="col-lg-2 control-label">Nombre</label>
+    <div class="col-lg-10">
+      <input type="text" class="form-control" id="txtNombre"
+             placeholder="Nombre" ng-model="municipio.nombre" required>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="txtDescripcion" class="col-lg-2 control-label">Descripcion</label>
+    <div class="col-lg-10">
+        <textarea class="form-control" rows="5" id="txtDescripcion" placeholder="Descripcion"
+                ng-model="municipio.descripcion"></textarea>      
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-lg-offset-2 col-lg-10">
+        <input type="button" class="btn btn-default" value="Guardar" 
+                ng-click="guardarPais(formMunicipio.$valid)">
+    </div>
+  </div>
+</form>
+<div class="panel panel-primary" style="width: 1000px;">
+    <div class="panel-heading">
+        <div class="input-group">
+            <span class="input-group-addon">
+                <i class="glyphicon glyphicon-search"></i>
+            </span>
+            <input type="text" class="form-control" 
+                   placeholder="Buscar Municipio" ng-model="txtBuscar">
+        </div>
+    </div>     
+    <div class="panel-body">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>
+                        <a ng-click="ordenarPor('codigo')">Codigo</a>
+                        <a class="caret" ng-click="ordenarPor('-codigo')"></a>
+                    </th>
+                    <th>
+                        <a ng-click="ordenarPor('nombre')">Nombre</a>
+                        <a class="caret" ng-click="ordenarPor('-nombre')"></a>
+                    </th>
+                    <th>
+                        <a ng-click="ordenarPor('descripcion')">Descripcion</a>
+                        <a class="caret" ng-click="ordenarPor('-descripcion')"></a>
+                    </th>
+                    <th>
+                        <a ng-click="ordenarPor('departamento')">Departamento</a>
+                        <a class="caret" ng-click="ordenarPor('-departamento')"></a>
+                    </th>
+                    <th>
+                        <a ng-click="ordenarPor('pais')">Pais</a>
+                        <a class="caret" ng-click="ordenarPor('-pais')"></a>
+                    </th>
+                    <th>
+                        <a>Opcion</a>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="obj in municipios| orderBy:ordenarSeleccionado
+                                | filter:txtBuscar">
+                    <td>{{obj.codigo}}</td>
+                    <td>{{obj.nombre| uppercase}}</td>
+                    <td>{{obj.descripcion}}</td>
+                    <td>{{obj.nombredepartamento| uppercase}}</td>
+                    <td>{{obj.nombrepais| uppercase}}</td>
+                    <td><input type="button" class="btn btn-default" value="Eliminar" 
+                               ng-click="eliminar(obj)"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>        
+</div>

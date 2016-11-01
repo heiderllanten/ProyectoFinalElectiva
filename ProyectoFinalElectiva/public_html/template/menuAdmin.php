@@ -42,7 +42,7 @@
                     <ul class="dropdown-menu">
                         <li><a class="crossroads" href="#/pais/">Gestion Pais</a></li>
                         <li><a class="crossroads" href="#/departamento/">Gestion Departamento</a></li>
-                        <li><a class="crossroads" href="#/municipios/">Gestion Municipios</a></li>  
+                        <li><a class="crossroads" href="#/municipio/">Gestion Municipios</a></li>  
                     </ul>
                 </li>
             </ul>
