@@ -10,7 +10,7 @@ class LoginDAO {
     }
 
     function ingresar(LogIn $obj) {
-        $query = "SELECT rol,usuario,password "
+        $query = "SELECT usuario,password,rol "
                 . "from usuarios "
                 . "where usuario='" . $obj->getUsuario() . "' AND password='" . $obj->getPassword() . "'";        
         $this->repository->Execute($query);        
@@ -22,7 +22,7 @@ class LoginDAO {
 //                . "INSERT INTO clientes (nombre,apellido,cedula,fecha_nacimiento,usuario) "
 //                . "VALUES ('".$obj->getNombre()."','".$obj->getApellido()."',".$obj->getCedula().","
 //                . "'".$obj->getFechaNacimiento()."','".$obj->getUsuario()."');";        
-        $this->repository->Execute($query);
+        $this->repository->ExecuteTransaction($query);
     }
 
 }

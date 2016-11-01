@@ -7,13 +7,13 @@ app.config(function ($routeProvider) {
             .when('/', {
                 templateUrl: 'inicio.html'
             })
-            .when('/estudiante', {
-                controller: 'CtlEstudiante',
-                templateUrl: 'estudianteCrud.html'
+            .when('/banco', {
+                controller: 'CtlBanco',
+                templateUrl: 'banco.html'
             })
-            .when('/listar', {
-                controller: 'CtlEstudiante',
-                templateUrl: 'estudianteListar.html'
+            .when('/cargos', {
+                controller: 'CtlCargos',
+                templateUrl: 'cargos.html'
             })
             .otherwise({
                 redirectTo: '/'
@@ -34,5 +34,8 @@ app.controller('CtlValidate', function ($scope, $window) {
         $window.location.href = 'index.html';
     }
 });
+
+
+
 
 /*PARA CONTROLAR UN MASTER PAGE, EN ESTA SECCION SE DEBERIA */

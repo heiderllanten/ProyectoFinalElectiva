@@ -56,19 +56,19 @@ and open the template in the editor.
                                             <input type="text" name="username" 
                                                    id="username" class="form-control" 
                                                    placeholder="Nombre de Usuario" 
-                                                   ng-model="identificacion.usuario">
+                                                   ng-model="identificacion.usuario" required>
                                         </div>
                                         <div class="form-group">
                                             <input type="password" name="password" 
-                                                   id="password" tabindex="2" 
+                                                   id="password" 
                                                    class="form-control" placeholder="Password" 
-                                                   ng-model="identificacion.password">
+                                                   ng-model="identificacion.password" required>
                                         </div>
                                         <div class="form-group">
                                             <div class="row">
                                                 <div class="col-sm-6 col-sm-offset-3">
                                                     <input type="button" name="login-submit" 
-                                                           id="login-submit" tabindex="4" 
+                                                           id="login-submit" 
                                                            class="form-control btn btn-login" 
                                                            value="Log In" ng-click="logIn(formLogIn.$valid)">
                                                 </div>

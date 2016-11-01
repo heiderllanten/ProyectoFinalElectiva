@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="dependencias/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <script src="dependencias/bower_components/jquery/dist/jquery.min.js" type="text/javascript"></script>
+        <script src="dependencias/bower_components/bootstrap/dist/js/bootstrap.min.js" type="text/javascript"></script>
+        <script src="dependencias/bower_components/angular/angular.min.js" type="text/javascript"></script>
+        <!--         DEPENDENCIAS ADICIONALES ANGULAR         
+                 ARCHIVO NECESARIO PARA EL MASTER PAGE 
+                 PERMITE HACER EL ENRUTAMIENTO DE URL'S -->
+        <script src="dependencias/bower_components/angular-route/angular-route.min.js" type="text/javascript"></script>
+
+        <!--ARCHIVOS PROPIOS--> 
+        <script src="recursos/js/general/app.js" type="text/javascript"></script>
+        <script src="recursos/js/general/appMasterPage.js" type="text/javascript"></script>
+        <script src="recursos/js/general/banco/bancoSer.js" type="text/javascript"></script>
+
+        <script src="recursos/js/general/banco/bancoCtl.js" type="text/javascript"></script>
+    </head>
+    <body >
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+                    <div class="panel panel-login">
+                        <div class="panel-heading">
+
+
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <form id="login-form" role="form" name="formBanco" 
+                                           style="display: block;">
+                                        <div class="form-group">
+                                            <input type="text" name="nombre" 
+                                                   id="nombre" class="form-control" 
+                                                   placeholder="Nombre del banco" 
+                                                   ng-model="banco.nombre" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="number" name="nit" 
+                                                   id="nit" 
+                                                   class="form-control" placeholder="NIT" 
+                                                   ng-model="banco.nit" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" name="mision" 
+                                                   id="mision" 
+                                                   class="form-control" placeholder="mision" 
+                                                   ng-model="banco.mision" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" name="vision" 
+                                                   id="vision" 
+                                                   class="form-control" placeholder="vision" 
+                                                   ng-model="banco.vision" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" name="direccion" 
+                                                   id="direccion" 
+                                                   class="form-control" placeholder="direccion" 
+                                                   ng-model="banco.direccion" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <div class="col-sm-4 col-sm-offset-3">
+                                                    <input type="button" name="crear" 
+                                                           id="crear" 
+                                                           class="form-control btn btn-login" 
+                                                           value="Crear" ng-click="crear(formBanco.$valid)">
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-4 col-sm-offset-3">
+                                                    <input type="button" name="buscar" 
+                                                           id="buscar" 
+                                                           class="form-control btn btn-login" 
+                                                           value="Buscar" ng-click="buscar()">
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-4 col-sm-offset-3">
+                                                    <input type="button" name="editar" 
+                                                           id="editar" 
+                                                           class="form-control btn btn-login" 
+                                                           value="Editar" ng-click="editar(formBanco.$valid)">
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-4 col-sm-offset-3">
+                                                    <input type="button" name="Eliminar" 
+                                                           id="eliminar" 
+                                                           class="form-control btn btn-login" 
+                                                           value="Eliminar" ng-click="eliminar()">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </form>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

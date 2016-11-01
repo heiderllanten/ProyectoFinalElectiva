@@ -15,7 +15,7 @@ class ClienteDAO {
                 . "INSERT INTO clientes (nombre,apellido,cedula,fecha_nacimiento,usuario) "
                 . "VALUES ('".$obj->getNombre()."','".$obj->getApellido()."',".$obj->getCedula().","
                 . "'".$obj->getFechaNacimiento()."','".$obj->getUsuario()."');";        
-        $this->repository->Execute($query);        
+        $this->repository->ExecuteTransaction($query);        
     }
 
 }
