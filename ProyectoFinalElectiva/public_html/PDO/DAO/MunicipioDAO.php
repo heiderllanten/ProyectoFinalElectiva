@@ -15,13 +15,15 @@ class MunicipioDAO {
         $this->repository->Execute($sql);
     }
     
-    public function listarDepPorPais(Pais $obj) {
-        $sql = "select id,nombre from departamentos where pais=".$obj->getId;   
+    public function listarDeptoPorPais(Pais $obj) {
+        $sql = "select id,nombre from departamentos where pais=".$obj->getId();   
         $this->repository->Execute($sql);
     }
 
-    public function listarMunicipios(Pais $obj) {
-        $slq = "select id,nombre,descripcion from municipios where departamento=" . $obj->getId();        
+    public function listarMunicipios() {
+        $slq = "select m.id,m.nombre,m.descripcion,d.nombre as nombredepto, "
+                . "p.nombre as nombrepais from municipios m join departamentos "
+                . "d on m.departamento=d.id join paises p on p.id=d.pais";          
         $this->repository->Execute($slq);
     }
     
@@ -31,7 +33,7 @@ class MunicipioDAO {
 
     public function crearMunicipio(Municipio $obj){
         $sql = "insert into municipios (nombre, descripcion, departamento) values ('".
-                $obj->getNombre()."','".$obj->getDescripcion()."',".$obj->getForanea().")";
+                $obj->getNombre()."','".$obj->getDescripcion()."',".$obj->getForanea().")";        
         $this->repository->ExecuteTransaction($sql);
     }
     

@@ -27,6 +27,10 @@ app.config(function ($routeProvider) {
                 controller: 'CtlMunicipio',
                 templateUrl: 'vista/admin/municipio.html'
             })
+            .when('/costos', {
+                controller: 'CtlCostos',
+                templateUrl: 'vista/admin/costos.html'
+            })
             .otherwise({
                 redirectTo: '/'
             });

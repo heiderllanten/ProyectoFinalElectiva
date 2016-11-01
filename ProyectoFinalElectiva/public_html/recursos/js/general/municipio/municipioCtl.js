@@ -15,7 +15,7 @@ app.controller('CtlMunicipio', function ($scope, $window, municipioService) {
             municipioService.crearMunicipio($scope.municipio).then(function (response) {
                 if (response.status === "true") {
                     $scope.municipio = "";
-                    $scope.listarDepartamentos();
+                    $scope.listarMunicipios();
                     alert("Se creo con exito");
                 } else {
                     $scope.municipio = "";
@@ -28,10 +28,10 @@ app.controller('CtlMunicipio', function ($scope, $window, municipioService) {
     };
 
     $scope.eliminar = function (municipio) {
-        municipioService.eliminarDepartamento(municipio).then(function (response) {
+        municipioService.eliminarMunicipio(municipio).then(function (response) {
             if (response.status === "true") {
                 $scope.municipio = "";
-                $scope.listarDepartamentos();
+                $scope.listarMunicipios();
                 alert("Se elimino con exito");
             } else {
                 $scope.municipio = "";
@@ -41,14 +41,15 @@ app.controller('CtlMunicipio', function ($scope, $window, municipioService) {
     };
     
     $scope.listarMunicipios = function () {
-        municipioService.listarMunicipios($scope.municipio).then(function (response) {
+        municipioService.listarMunicipios().then(function (response) {
             $scope.municipios = [];
             if (response[0].res !== 0) {
                 $scope.municipios.length = 0;
                 for (var i = 0; i < response.length; i++) {
                     $scope.municipios.push({nombre: response[i].nombre, codigo:
-                                response[i].id, descripcion: response[i].descripcioin,
-                        nombrepais: response[i].nombrepais
+                                response[i].id, descripcion: response[i].descripcion,
+                        nombrepais: response[i].nombrepais, nombredepto: response[i].
+                                nombredepto
                     });
                 }
             }
@@ -56,14 +57,13 @@ app.controller('CtlMunicipio', function ($scope, $window, municipioService) {
     };
 
     $scope.listarDepartamentos = function () {
-        municipioService.listarDepartamentos($scope.municipio).then(function (response) {
+        municipioService.listarDeptoPorPais($scope.municipio).then(function (response) {
             $scope.departamentos = [];
             if (response[0].res !== 0) {
                 $scope.departamentos.length = 0;
                 for (var i = 0; i < response.length; i++) {
                     $scope.departamentos.push({nombre: response[i].nombre, codigo:
-                                response[i].id, descripcion: response[i].descripcioin,
-                        nombrepais: response[i].nombrepais
+                                response[i].id
                     });
                 }
             }
@@ -72,7 +72,7 @@ app.controller('CtlMunicipio', function ($scope, $window, municipioService) {
     
     $scope.listarPaises = function () {
         municipioService.listarPaises().then(function (response) {
-            $scope.paises = [];
+            $scope.paises = [];            
             if (response[0].res !== 0) {
                 $scope.paises.length = 0;
                 for (var i = 0; i < response.length; i++) {

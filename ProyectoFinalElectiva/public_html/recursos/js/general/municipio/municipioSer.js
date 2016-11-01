@@ -126,6 +126,27 @@ app.service('municipioService', function ($http, $httpParamSerializerJQLike) {
         return promise;
     };
     
+    this.listarDeptoPorPais = function (municipio) {
+        /*El resultado del $http es almacenado en la promesa*/
+        /*Ademas se debe definir el tipo de cabecera para enviar los datos*/
+        var promise = $http({
+            method: "get",           
+            url: "PDO/Controller/CtlMunicipio.php",
+            params: {
+                id: municipio.pais,
+                tipo: "DEPT"
+            }
+        }).then(function mySucces(response) {
+            return response.data;
+        }, function myError(response) {
+            alert("Error");
+            alert(response.statusText);
+        });
+
+        /*Luego se retorna la promesa*/
+        return promise;
+    };
+    
     this.listarPaises = function () {
         /*El resultado del $http es almacenado en la promesa*/
         /*Ademas se debe definir el tipo de cabecera para enviar los datos*/
@@ -154,7 +175,7 @@ app.service('municipioService', function ($http, $httpParamSerializerJQLike) {
             method: "delete",
             url: "PDO/Controller/CtlMunicipio.php",
             params: {
-                id: municipio.id,
+                id: municipio.codigo,
                 tipo: "MUNC"
             },
             headers: {'Content-Type': 'application/x-www-form-urlencoded'}

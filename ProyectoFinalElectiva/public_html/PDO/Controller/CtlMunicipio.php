@@ -18,13 +18,15 @@ switch (strtolower($method)) {
 
         $id = (isset($_REQUEST['id']) ? $_REQUEST['id'] : "");
         $tipo = (isset($_REQUEST['tipo']) ? $_REQUEST['tipo'] : "");
-
+        
         if ($tipo == "PAIS") {
             //Listar Paises
             $dao->listarPaises();
         } else if ($tipo == "DEPT") {
             if ($id != "") {
-                
+                $obj = new Pais(null,null);
+                $obj->setId($id);
+                $dao->listarDeptoPorPais($obj);
             } else {
                 $dao->listarDepartamentos();
             }

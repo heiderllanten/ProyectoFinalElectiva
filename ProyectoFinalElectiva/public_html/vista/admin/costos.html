@@ -1,0 +1,69 @@
+<form class="form-horizontal" role="form" name="formPais" style="margin-top: 80px; width: 600px;">
+    <div class="page-header">
+        <h1>Costos</h1>
+    </div>
+    <div class="form-group">
+        <label for="txtNombre" class="col-lg-2 control-label">Nombre</label>
+        <div class="col-lg-10">
+            <input type="text" class="form-control" id="txtNombre"
+                   placeholder="Nombre" ng-model="costo.nombre" required>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="txtMonto" class="col-lg-2 control-label">Monto</label>
+        <div class="col-lg-10">
+            <input type="number" class="form-control" id="txtMonto"
+                   placeholder="Monto" ng-model="costo.monto" required>    
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-lg-offset-2 col-lg-10">
+            <input type="button" class="btn btn-default" value="Guardar" 
+                   ng-click="crear(formPais.$valid)">
+        </div>
+    </div>
+</form>
+<div class="panel panel-primary" style="width: 900px;">
+    <div class="panel-heading">
+        <div class="input-group">
+            <span class="input-group-addon">
+                <i class="glyphicon glyphicon-search"></i>
+            </span>
+            <input type="text" class="form-control" 
+                   placeholder="Buscar Costo" ng-model="txtBuscar">
+        </div>
+    </div>     
+    <div class="panel-body">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>
+                        <a ng-click="ordenarPor('codigo')">Codigo</a>
+                        <a class="caret" ng-click="ordenarPor('-codigo')"></a>
+                    </th>
+                    <th>
+                        <a ng-click="ordenarPor('nombre')">Nombre</a>
+                        <a class="caret" ng-click="ordenarPor('-nombre')"></a>
+                    </th>
+                    <th>
+                        <a ng-click="ordenarPor('monto')">Monto</a>
+                        <a class="caret" ng-click="ordenarPor('-monto')"></a>
+                    </th>
+                    <th>
+                        <a>Opcion</a>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="obj in costos| orderBy:ordenarSeleccionado
+                            | filter:txtBuscar" ng-click="llenarCampos(obj)">
+                    <td>{{obj.codigo}}</td>
+                    <td>{{obj.nombre| uppercase}}</td>
+                    <td>{{obj.monto}}</td>
+                    <td><input type="button" class="btn btn-default" value="Eliminar" 
+                               ng-click="eliminar(obj)"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>        
+</div>

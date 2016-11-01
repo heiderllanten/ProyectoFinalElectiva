@@ -34,7 +34,7 @@ app.controller('CtlPais', function ($scope, $window, municipioService) {
                 alert("Se elimino con exito");                
             } else {
                 $scope.pais = "";
-                alert("No existe");
+                alert("No se puede eliminar el pais");
             }
         });
     };

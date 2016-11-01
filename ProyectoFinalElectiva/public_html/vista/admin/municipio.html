@@ -39,7 +39,7 @@
   <div class="form-group">
     <div class="col-lg-offset-2 col-lg-10">
         <input type="button" class="btn btn-default" value="Guardar" 
-                ng-click="guardarPais(formMunicipio.$valid)">
+                ng-click="crear(formMunicipio.$valid)">
     </div>
   </div>
 </form>
@@ -88,7 +88,7 @@
                     <td>{{obj.codigo}}</td>
                     <td>{{obj.nombre| uppercase}}</td>
                     <td>{{obj.descripcion}}</td>
-                    <td>{{obj.nombredepartamento| uppercase}}</td>
+                    <td>{{obj.nombredepto| uppercase}}</td>
                     <td>{{obj.nombrepais| uppercase}}</td>
                     <td><input type="button" class="btn btn-default" value="Eliminar" 
                                ng-click="eliminar(obj)"></td>
