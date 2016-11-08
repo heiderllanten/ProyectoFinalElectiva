@@ -56,7 +56,7 @@
             </thead>
             <tbody>
                 <tr ng-repeat="obj in paises| orderBy:ordenarSeleccionado
-                                | filter:txtBuscar">
+                                | filter:txtBuscar" ng-click="llenarCampos(obj)">
                     <td>{{obj.codigo}}</td>
                     <td>{{obj.nombre| uppercase}}</td>
                     <td>{{obj.descripcion}}</td>

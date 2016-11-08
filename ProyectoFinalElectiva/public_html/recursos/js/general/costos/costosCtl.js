@@ -53,9 +53,9 @@ app.controller('CtlCostos', function ($scope, $window, costosService) {
         });
     };
     
-    $scope.llenarCampos = function (obj){        
-        $scope.costo.nombre = obj.nombre;
-        $scope.costo.monto = obj.monto;
+    $scope.llenarCampos = function (obj){ 
+        obj.monto = parseInt(obj.monto);
+        $scope.costo = obj;
     };
 
     $scope.ordenarPor = function (tipo) {

@@ -21,9 +21,9 @@ class MunicipioDAO {
     }
 
     public function listarMunicipios() {
-        $slq = "select m.id,m.nombre,m.descripcion,d.nombre as nombredepto, "
-                . "p.nombre as nombrepais from municipios m join departamentos "
-                . "d on m.departamento=d.id join paises p on p.id=d.pais";          
+        $slq = "select m.id,m.nombre,m.descripcion,d.id as departamento,d.nombre "
+                . "as nombredepto,p.id as pais,p.nombre as nombrepais from municipios "
+                . "m join departamentos d on m.departamento=d.id join paises p on p.id=d.pais";          
         $this->repository->Execute($slq);
     }
     

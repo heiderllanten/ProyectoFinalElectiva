@@ -49,7 +49,8 @@ app.controller('CtlMunicipio', function ($scope, $window, municipioService) {
                     $scope.municipios.push({nombre: response[i].nombre, codigo:
                                 response[i].id, descripcion: response[i].descripcion,
                         nombrepais: response[i].nombrepais, nombredepto: response[i].
-                                nombredepto
+                                nombredepto, departamento: response[i].departamento, 
+                        pais: response[i].pais
                     });
                 }
             }
@@ -82,6 +83,12 @@ app.controller('CtlMunicipio', function ($scope, $window, municipioService) {
                 }
             }
         });
+    };
+    
+    $scope.llenarCampos = function (obj){         
+        $scope.municipio = obj;
+        $scope.municipio.pais = obj.pais.toString();
+        $scope.municipio.departamento = obj.departamento.toString();
     };
 
     $scope.ordenarPor = function (tipo) {

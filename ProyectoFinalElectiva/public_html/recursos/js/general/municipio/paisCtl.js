@@ -52,6 +52,10 @@ app.controller('CtlPais', function ($scope, $window, municipioService) {
             }
         });
     };
+    
+    $scope.llenarCampos = function (obj){ 
+        $scope.pais = obj;
+    };
 
     $scope.ordenarPor = function (tipo) {
         $scope.ordenarSeleccionado = tipo;
